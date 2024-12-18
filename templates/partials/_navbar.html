@@ -29,8 +29,7 @@
           <li {%  if 'listings' in request.path  %} class="nav-item active mr-3"{% else %} 
           class="nav-item mr-3"{% endif %} 
           >
-            {% comment %} to fix index.html {% endcomment %}
-            <a class="nav-link" href="listings.html">Featured Listings</a>
+            <a class="nav-link" href= {% url "listings" %} >Featured Listings</a>
           </li>
         </ul>
 
