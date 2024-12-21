@@ -1,0 +1,19 @@
+{% extends "admin/base.html" %}
+{% load static %}
+{% block branding %}
+
+<h1 id="head">
+    <img 
+    src={% static 'img/logo.png' %} 
+    alt="BC Real Estate"
+    class = 'brand_img' 
+    height= "80" 
+    width = "78"
+    /> Admin Area
+</h1>
+
+{% endblock %}
+<!-- add css -->
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'css/admin.css' %}" />
+{% endblock %}color: #ffff;

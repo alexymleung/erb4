@@ -23,7 +23,7 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="index.html"> <i class="fas fa-home"></i> Home</a>
+          <a href={% url "index" %}> <i class="fas fa-home"></i> Home</a>
         </li>
         <li class="breadcrumb-item active">Browse Listings</li>
       </ol>
@@ -40,6 +40,7 @@
         <div class="card listing-preview">
           <img
             class="card-img-top"
+            {% comment %}  {% endcomment %}
             src="assets/img/homes/home-1.jpg"
             alt=""
           />
@@ -87,7 +88,7 @@
               </div>
             </div>
             <hr />
-            <a href="listing.html" class="btn btn-primary btn-block"
+            <a href={% url "index" %} class="btn btn-primary btn-block"
               >More Info</a
             >
           </div>
@@ -99,6 +100,7 @@
         <div class="card listing-preview">
           <img
             class="card-img-top"
+            {% comment %}  {% endcomment %}
             src="assets/img/homes/home-2.jpg"
             alt=""
           />
@@ -144,6 +146,7 @@
               </div>
             </div>
             <hr />
+            {% comment %}  {% endcomment %}
             <a href="listing.html" class="btn btn-primary btn-block"
               >More Info</a
             >
@@ -156,6 +159,7 @@
         <div class="card listing-preview">
           <img
             class="card-img-top"
+            {% comment %}  {% endcomment %}
             src="assets/img/homes/home-3.jpg"
             alt=""
           />
@@ -201,6 +205,7 @@
               </div>
             </div>
             <hr />
+            {% comment %}  {% endcomment %}
             <a href="listing.html" class="btn btn-primary btn-block"
               >More Info</a
             >
@@ -213,6 +218,7 @@
         <div class="card listing-preview">
           <img
             class="card-img-top"
+            {% comment %}  {% endcomment %}
             src="assets/img/homes/home-4.jpg"
             alt=""
           />
@@ -271,6 +277,7 @@
         <div class="card listing-preview">
           <img
             class="card-img-top"
+            {% comment %}  {% endcomment %}
             src="assets/img/homes/home-5.jpg"
             alt=""
           />
@@ -327,6 +334,7 @@
         <div class="card listing-preview">
           <img
             class="card-img-top"
+            {% comment %}  {% endcomment %}
             src="assets/img/homes/home-6.jpg"
             alt=""
           />
@@ -371,6 +379,7 @@
               </div>
             </div>
             <hr />
+            {% comment %}  {% endcomment %}
             <a href="listing.html" class="btn btn-primary btn-block"
               >More Info</a
             >
