@@ -1,7 +1,6 @@
-
 #header {
   height: 88px;
-  background: #273D5F;
+  background: #273d5f;
   color: #ffff;
 }
 
@@ -9,7 +8,8 @@
   color: #ffff;
 }
 
-a:link, a:visited {
+a:link,
+a:visited {
   color: #2c4262;
 }
 
@@ -23,14 +23,16 @@ div.breadcrumbs a {
   color: #333;
 }
 
-.module h2, .module caption, .inlinegroup h2 {
+.module h2,
+.module caption,
+.inlinegroup h2 {
   background: #30caa0;
   color: #2c4262;
 }
 
-.button, 
-input[type= "submit"],
-input[type= "button"],
+.button,
+input[type="submit"],
+input[type="button"],
 .submitrow input,
 a.button {
   background: #2c4262;
