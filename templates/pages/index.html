@@ -14,8 +14,8 @@
           Consectetur, id commodi!
         </p>
         <div class="search">
-            {% comment %} to be amended.html {% endcomment %}
-          <form action={% url 'search' %}>
+           {% comment %} to be changed to POST {% endcomment %}
+          <form action={% url 'search' %} method="GET">
             <!-- Form Row 1 -->
             <div class="form-row">
               <div class="col-md-4 mb-3">
@@ -29,12 +29,12 @@
               </div>
 
               <div class="col-md-4 mb-3">
-                <label class="sr-only">street</label>
+                <label class="sr-only">Title</label>
                 <input
                   type="text"
-                  name="street"
+                  name="title"
                   class="form-control"
-                  placeholder="Street"
+                  placeholder="Title"
                 />
               </div>
 
@@ -108,14 +108,14 @@
           alt="" />
           <div class="card-img-overlay">
             <h2>
-              <span class="badge badge-secondary text-white">${{listing.price | intcomma}}</span>
+              <span class="badge badge-secondary text-white">${{listing.price | intword}}</span>
             </h2>
           </div>
           <div class="card-body">
             <div class="listing-heading text-center">
               <h4 class="text-primary">{{listing.street}}</h4>
               <p>
-                <i class="fas fa-map-marker text-secondary"></i> {{listing.district}}
+                <i class="fas fa-map-marker text-secondary"></i> {{listing.get_district_display}}
               </p>
             </div>
             <hr />
@@ -133,7 +133,7 @@
             </div>
             <hr />
             <div class="row py-2 text-secondary">
-              <div class="col-6"><i class="fas fa-user"></i> {{listing.realtor}}</div>
+              <div class="col-6"><i class="fas fa-user"></i> {{listing.realtor.name}}</div>
             </div>
             <div class="row text-secondary pb-2">
               <div class="col-6"><i class="fas fa-clock"></i> {{listing.list_date}}</div>
