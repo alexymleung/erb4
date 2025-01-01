@@ -1,17 +1,18 @@
 {% extends "base.html" %}
 {% load humanize %}
+{% block title %} | Welcome {% endblock title%}
 {% block content %}
+
+{% include "partials/_alert.html" %}
 
 <!-- Showcase -->
 <section id="showcase">
   <div class="container text-center">
     <div class="home-search p-5">
       <div class="overlay p-5">
-        <h1 class="display-4 mb-4">Property Searching Just Got So Easy</h1>
+        <h1 class="display-4 mb-4">Find Your Dream Home Right Here</h1>
         <p class="lead">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae
-          quas, asperiores eveniet vel nostrum magnam voluptatum tempore!
-          Consectetur, id commodi!
+          In BC Real Estate, we have all kinds of property listings that would serve whatever purpose you have, whether that be buying or renting. Likewise, if you want to lease or sell your properties, you can rest assure to place with us and we will find the perfect buyer or renter for you. 
         </p>
         <div class="search">
            {% comment %} to be changed to POST {% endcomment %}
@@ -94,7 +95,7 @@
 <!-- Listings -->
 <section id="listings" class="py-5">
   <div class="container">
-    <h3 class="text-center mb-3">Latest Listings</h3>
+    <h3 class="display-7 text-center mb-4">Latest Listings</h3>
     <div class="row">
       {% if listings %}
 
@@ -102,10 +103,15 @@
       <!-- Listing 1 -->
       <div class="col-md-6 col-lg-4 mb-4">
         <div class="card listing-preview">
-          {% comment %} to be amended dynamic data {% endcomment %}
-          <img class="card-img-top" 
-          src={{ listing.photo_main.url }} 
-          alt="" />
+          
+          <!-- Link ot working!! -->
+          <a href={% url "listing" listing.id %}>
+            <img class="card-img-top" 
+              src={{listing.photo_main.url}} 
+              alt="Listing Main Photo"
+            >
+          </a>
+
           <div class="card-img-overlay">
             <h2>
               <span class="badge badge-secondary text-white">${{listing.price | intword}}</span>
@@ -113,7 +119,11 @@
           </div>
           <div class="card-body">
             <div class="listing-heading text-center">
-              <h4 class="text-primary">{{listing.street}}</h4>
+
+              <a href={% url "listing" listing.id %}>
+                <h4 class="text-primary">{{listing.title | title}}</h4>
+              </a>
+
               <p>
                 <i class="fas fa-map-marker text-secondary"></i> {{listing.get_district_display}}
               </p>
@@ -137,11 +147,13 @@
             </div>
             <div class="row text-secondary pb-2">
               <div class="col-6"><i class="fas fa-clock"></i> {{listing.list_date}}</div>
-            </div>
+            </div  >
             <hr />
-             {% comment %} to be amended.html {% endcomment %}
-            <a href={% url "listing" listing.id %} class="btn btn-primary btn-block"
-              >More Info</a>
+            <a href={% url "listing" listing.id %} 
+              class="btn btn-primary btn-block style="
+              background-color:#003A2A;" "
+              >More Info
+            </a>
           </div>
         </div>
       </div>

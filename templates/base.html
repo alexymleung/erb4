@@ -5,6 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Font Awesome cdnjs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href={% static "css/all.css" %} />
     <!-- Bootstrap -->
@@ -13,17 +19,25 @@
     <link rel="stylesheet" href={% static "css/style.css" %} />
     <!-- lightbox -->
     <link rel="stylesheet" href={% static "css/lightbox.min.css" %} />
+    <!-- icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/logo.png' %}" />
 
-    <title>BC Real Estate</title>
+    
+    <style>
+
+
+    </style>
+      
+
+    <title>BC Real Estate {% block title %} {% endblock title %}</title>
   </head>
 
   <body>
     {% include 'partials/_topbar.html' %}
     {% include 'partials/_navbar.html' %}
-
     {% block content %}    {% endblock %}
-
     {% include 'partials/_footer.html' %}
+    
     <script src={% static "js/jquery-3.3.1.min.js" %}></script>
     <script src={% static "js/bootstrap.bundle.min.js" %}></script>
     <script src={% static "js/main.js" %}></script>   

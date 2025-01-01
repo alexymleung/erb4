@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,6 +45,8 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'listings.apps.ListingsConfig',
     'realtors.apps.RealtorsConfig',
+    'accounts.apps.AccountsConfig', 
+    'contacts.apps.ContactsConfig',
 ]
 
 MIDDLEWARE = [
@@ -148,4 +151,15 @@ INTERNAL_IPS = [
     # ...
 ]
 
+MESSAGE_TAGS ={
+    messages.ERROR: 'danger',
+    messages.SUCCESS: 'success',
+}
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'alexleungworks@gmail.com'
+EMAIL_HOST_PASSWORD = '3EDCvfr45TGB,.'
+EMAIL_USE_TLS = True
 

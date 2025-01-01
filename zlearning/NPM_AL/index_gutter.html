@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.css"
+    />
+    <style>
+      [class*="col"] {
+        padding: 1rem;
+        background-color: #33b5e5;
+        border: 2px solid white;
+        color: white;
+      }
+      .child{
+        background-color: #2041d3;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="container-md border">
+      <div class="row">
+        <div class="col-lg-8 col-md-6">Col 1</div>
+        <div class="col-lg-4 col-md-6">Col 2</div>
+      </div>
+    </div>
+    <h2 class="text-center my-5">Gutter</h2>
+
+    <div class="container">
+      <div class="row gx-5 gy-4">
+        <div class="col-6"><div class="child">1</div></div>
+        <div class="col-6"><div class="child">2</div></div>
+        <div class="col-6"><div class="child">3</div></div>
+        <div class="col-6"><div class="child">4</div></div>
+      </div >
+    </div>
+
+    <div class="container">
+      <div class="row ">
+        <div class="col-6"><div class="child">1</div></div>
+        <div class="col-6"><div class="child">2</div></div>
+        <div class="col-6"><div class="child">3</div></div>
+        <div class="col-6"><div class="child">4</div></div>
+      </div >
+    </div>
+
+    <div class="container">
+      <div class="row g-0 ">
+        <div class="col-6"><div class="child">1</div></div>
+        <div class="col-6"><div class="child">2</div></div>
+        <div class="col-6"><div class="child">3</div></div>
+        <div class="col-6"><div class="child">4</div></div>
+      </div >
+    </div>
+
+    <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-info">Info</button>
+    <button type="button" class="btn btn-light">Light</button>
+    <button type="button" class="btn btn-dark">Dark</button>
+    
+    <button type="button" class="btn btn-link">Link</button>
+
+
+
+
+
+
+
+
+    <script>
+      scr = "node_modules/bootstrap/dist/js/bootstrap.bundle.js";
+    </script>
+  </body>
+</html>

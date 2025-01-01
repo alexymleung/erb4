@@ -1,7 +1,8 @@
 #header {
   height: 88px;
-  background: #273d5f;
+  background: #005140;
   color: #ffff;
+  font-size: 40px;
 }
 
 #branding h1 {
@@ -35,6 +36,6 @@ input[type="submit"],
 input[type="button"],
 .submitrow input,
 a.button {
-  background: #2c4262;
+  background: #003A2A;
   color: #ffff;
 }

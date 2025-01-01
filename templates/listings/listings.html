@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load humanize %}
+{% block title %} | Featured Listings {% endblock title %}
 {% block content %}
 
 <!-- showcase-inner -->
@@ -7,7 +8,7 @@
     <div class="container">
       <div class="row text-center">
         <div class="col-md-12">
-          <h1 class="display-4">Browse Our Properties</h1>
+          <h1 class="display-4">Come see your Dream Home</h1>
           <p class="lead">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt,
             pariatur!
@@ -22,10 +23,10 @@
   <div class="container">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item">
+        <li class="breadcrumb-item active">
           <a href={% url "index" %}> <i class="fas fa-home"></i> Home</a>
         </li>
-        <li class="breadcrumb-item active">Browse Listings</li>
+        <li class="breadcrumb-item">Browse Listings</li>
       </ol>
     </nav>
   </div>
@@ -43,11 +44,15 @@
       {% for listing in listings %}
       <div class="col-md-6 col-lg-4 mb-4">
         <div class="card listing-preview">
-          <img
-            class="card-img-top"
-            src={{ listing.photo_main.url }}
-            alt=""
-          />
+
+          <a href={% url "listing" listing.id %}> 
+            <img
+              class="card-img-top"
+              src={{ listing.photo_main.url }}
+              alt=""
+            >
+          </a>
+
           <div class="card-img-overlay">
             <h2>
               <span class="badge badge-secondary text-white"
@@ -57,7 +62,11 @@
           </div>
           <div class="card-body">
             <div class="listing-heading text-center">
-              <h4 class="text-primary">{{ listing.street }}</h4>
+
+          <a href={% url "listing" listing.id %}> 
+            <h4 class="text-primary">{{ listing.title|title }}</h4>
+          </a>
+
               <p>
                 <i class="fas fa-map-marker text-secondary"></i> {{ listing.get_district_display }}
               </p>
@@ -91,9 +100,10 @@
               </div>
             </div>
             <hr />
-            <a href={% url "listing" listing.id %} class="btn btn-primary btn-block"
-              >More Info</a
-            >
+            <a href={% url "listing" listing.id %} 
+              class="btn btn-primary btn-block"> 
+              More Info
+            </a>
           </div>
         </div>
       </div>
@@ -120,7 +130,7 @@
                 <a class="page-link" href="?page={{listings.previous_page_number}}">&laquo;</a>
               </li>
             {% else %}
-              <li class="page-item">
+              <li class="page-item disabled">
                 <a class="page-link disabled" href="#">&laquo;</a>
               </li>
             {% endif %}
@@ -148,7 +158,7 @@
                 <a class="page-link" href="?page={{listings.next_page_number}}">&raquo;</a>
               </li>
             {% else %}
-              <li class="page-item">
+              <li class="page-item disabled">
                 <a class="page-link disabled" href="#">&raquo;</a>
               </li>
             {% endif %}

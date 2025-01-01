@@ -1,0 +1,182 @@
+{% extends "base.html" %} 
+{% load humanize %}
+{% block content %}
+
+<!-- showcase-inner -->
+<section id="showcase-inner" class="py-5 text-white">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-12">
+        <h3 class="display-4">{{ realtor.name }}</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Breadcrumb -->
+<section id="bc" class="mt-3">
+  <div class="container">
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href={% url "index" %}>Home</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href={% url "about" %}>Realtors</a>
+        </li>
+        <li class="breadcrumb-item active">{{ realtor.name }}</li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- realtor -->
+<section id="realtor" class="py-4">
+  <div class="container">
+    <a href={% url "about" %} class="btn btn-light mb-4">Back To Realtors</a>
+
+    <div class="row">
+        <div class="col-md-9"
+
+            <!-- Home Main Image -->
+            <img
+            src={{ realtor.foto_main.url }}
+            alt=""
+            class="img-main img-fluid mb-3"
+            />
+
+            <!-- Thumbnails -->
+            <div class="row mb-5 thumbs">
+
+                {% if realtor.foto_1 %}
+                <div class="col-md-2">
+                    <a
+                    href={{ realtor.foto_1.url }}
+                    data-lightbox="home-images"
+                    >
+                        {% comment %} to be amended {% endcomment %}
+                    <img
+                        src={{ realtor.foto_1.url }}
+                        alt=""
+                        class="img-fluid"
+                    />
+                    </a>
+                </div>
+                {% endif %}
+
+                {% if realtor.foto_2 %}
+                <div class="col-md-2">
+                    <a
+                    href={{ realtor.foto_2.url }}
+                    data-lightbox="home-images"
+                    >
+                    <img
+                        src={{ realtor.foto_2.url }}
+                        alt=""
+                        class="img-fluid"
+                    />
+                    </a>
+                </div>
+                {% endif %}
+
+                {% if realtor.foto_3 %}
+                <div class="col-md-2">
+                    <a
+                    href={{ realtor.foto_3.url }}
+                    data-lightbox="home-images"
+                    >
+                    <img
+                        src={{ realtor.foto_3.url }}
+                        alt=""
+                        class="img-fluid"
+                    />
+                    </a>
+                </div>
+                {% endif %}
+
+                {% if realtor.foto_4 %}
+                <div class="col-md-2">
+                    <a
+                    href={{ realtor.foto_4.url }}
+                    data-lightbox="home-images"
+                    >
+                    <img
+                        src={{ realtor.foto_4.url }}
+                        alt=""
+                        class="img-fluid"
+                    />
+                    </a>
+                </div>
+                {% endif %}
+
+                {% if realtor.foto_5 %}
+                <div class="col-md-2">
+                    <a
+                    href={{ realtor.foto_5.url }}
+                    data-lightbox="home-images"
+                    >
+                    <img
+                        src={{ realtor.foto_5.url }}
+                        alt=""
+                        class="img-fluid"
+                    />
+                    </a>
+                </div>
+                {% endif %}
+
+                {% if realtor.foto_6 %}
+                <div class="col-md-2">
+                    <a
+                    href={{ realtor.foto_6.url }}
+                    data-lightbox="home-images"
+                    >
+                    <img
+                        src={{ realtor.foto_6.url }}
+                        alt=""
+                        class="img-fluid"
+                    />
+                    </a>
+                </div>
+                {% endif %}
+    
+            </div>
+
+            <!-- Fields -->
+            <div class="row mb-5 fields">
+            <div class="col-md-6">
+                <ul class="list-group list-group-flush">
+
+                <li class="list-group-item text-secondary">
+                    <i class="fa-solid fa-caret-right" style="font-size:23px; color:red" ></i> Name:
+                        {% comment %} to be amended {% endcomment %}
+                    <span class="float-right">{{ realtor.name }}</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                    <i class="fas fa-phone"></i> Phone:
+                        {% comment %} to be amended {% endcomment %}
+                    <span class="float-right">{{ realtor.phone }}</span>
+                </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item text-secondary">
+                    <i class="fas fa-envelope-open"></i> Email:
+                    <span class="float-right">{{ realtor.email }}</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                    <i class="fa fa-calendar" aria-hidden="true" style=" color:blue"></i> Date Joined:
+                    <span class="float-right">{{ realtor.hire_date | timesince}} </span>
+                </li>
+                </ul>
+            </div>
+            </div>
+
+
+ 
+        </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

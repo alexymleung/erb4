@@ -1214,10 +1214,14 @@ readers do not read off random characters that represent icons */
   content: "\f1d1"; }
 
 .fa-envelope:before {
-  content: "\f0e0"; }
+  content: "\f0e0"; 
+  color: blue;
+}
 
 .fa-envelope-open:before {
-  content: "\f2b6"; }
+  content: "\f2b6";
+  color: #0E6A57;
+ }
 
 .fa-envelope-open-text:before {
   content: "\f658"; }
@@ -1283,7 +1287,9 @@ readers do not read off random characters that represent icons */
   content: "\f070"; }
 
 .fa-facebook:before {
-  content: "\f09a"; }
+  content: "\f09a"; 
+  color: #4267B2
+}
 
 .fa-facebook-f:before {
   content: "\f39e"; }
@@ -1292,7 +1298,9 @@ readers do not read off random characters that represent icons */
   content: "\f39f"; }
 
 .fa-facebook-square:before {
-  content: "\f082"; }
+  content: "\f082"; 
+  color: #4267B2
+}
 
 .fa-fast-backward:before {
   content: "\f049"; }
@@ -1907,7 +1915,9 @@ readers do not read off random characters that represent icons */
   content: "\f05a"; }
 
 .fa-instagram:before {
-  content: "\f16d"; }
+  content: "\f16d"; 
+  color: #833AB4
+}
 
 .fa-internet-explorer:before {
   content: "\f26b"; }
@@ -2072,7 +2082,8 @@ readers do not read off random characters that represent icons */
   content: "\f0c1"; }
 
 .fa-linkedin:before {
-  content: "\f08c"; }
+  content: "\f08c"; 
+  color : #0077B5}
 
 .fa-linkedin-in:before {
   content: "\f0e1"; }
@@ -2513,7 +2524,9 @@ readers do not read off random characters that represent icons */
   content: "\f511"; }
 
 .fa-phone:before {
-  content: "\f095"; }
+  content: "\f095";
+  color: brown;
+ }
 
 .fa-phone-slash:before {
   content: "\f3dd"; }
@@ -2546,7 +2559,8 @@ readers do not read off random characters that represent icons */
   content: "\f484"; }
 
 .fa-pinterest:before {
-  content: "\f0d2"; }
+  content: "\f0d2";
+  color: #E60023 }
 
 .fa-pinterest-p:before {
   content: "\f231"; }
@@ -3413,7 +3427,9 @@ readers do not read off random characters that represent icons */
   content: "\f1e8"; }
 
 .fa-twitter:before {
-  content: "\f099"; }
+  content: "\f099"; 
+  color: skyblue;
+}
 
 .fa-twitter-square:before {
   content: "\f081"; }

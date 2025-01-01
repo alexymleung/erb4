@@ -1,56 +1,103 @@
 <!-- Navbar -->
 {% load static %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href={% url "index" %}>
-        <img src={% static "img/logo.png" %} class="logo" alt="" />
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavAltMarkup"
+<nav 
+  class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top"
+  >
+  <div class="container">
+    <a class="navbar-brand" href={% url "index" %}>
+      <img src={% static "img/logo.png" %} class="logo" alt="Company Logo" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNavAltMarkup"
       >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <ul class="navbar-nav">
-          <li {%  if '/' == request.path  %} class="nav-item active mr-3"{% else %} 
-          class="nav-item mr-3"{% endif %} 
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Collapsable Home, Listings & About + Dashboard login/Out -->
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <!-- Home, Listings & About -->
+      <ul class="navbar-nav">
+        <!-- Home -->
+        <li {%  if '/' == request.path  %} 
+              class="nav-item active mr-3"
+            {% else %} 
+              class="nav-item mr-3"
+            {% endif %} 
           >
-            <a class="nav-link" href={% url "index" %}>Home</a>
+          <a class="nav-link" href={% url "index" %}>Home</a>
+        </li>
+        <!-- Featured Listings -->
+        <li {%  if 'listings' in request.path  %} 
+              class="nav-item active mr-3"
+            {% else %} 
+              class="nav-item mr-3"
+            {% endif %} 
+          >
+          <a class="nav-link" href= {% url "listings" %} >Featured Listings</a>
+        </li>
+        <!-- About -->
+        <li {%  if 'about' in request.path  %} 
+              class="nav-item active mr-3"
+            {% else %} 
+              class="nav-item mr-3"
+            {% endif %} 
+          >
+          <a class="nav-link" href={% url "about" %}>About</a>
+        </li>
+      </ul>
+      <!-- USER LOGINOUT DASHBD -->
+      <ul class="navbar-nav ml-auto">
+        {%if user.is_authenticated %}
+          <!-- dashboard -->
+          <li 
+            {% if 'dashboard' in request.path %} 
+              class = "nav-item active mr-3"
+            {%else%}
+              class = "nav-item mr-3" 
+            {% endif %}>
+            <a class='nav-link' href={% url "dashboard" %}>
+              <i class="fas fa-user"> </i> 
+              {{user.username}} (dashboard) 
+            </a>
           </li>
-          <li {%  if 'listings' in request.path  %} class="nav-item active mr-3"{% else %} 
-          class="nav-item mr-3"{% endif %} 
-          >
-            <a class="nav-link" href= {% url "listings" %} >Featured Listings</a>
+          <!-- logout -->
+          <li class = "nav-item mr-3">
+            <a class='nav-link' href="javascript:{document.getElementById('logout').submit()}">
+              <i class= "fas fa-sign-out-alt"></i>Logout</a>
+            <form action="{% url 'logout' %}" method = 'POST' id = 'logout'>
+              {% csrf_token %}
+              <input type = 'hidden'>
+            </form>
           </li>
-          <li {%  if 'about' in request.path  %} class="nav-item active mr-3"{% else %} 
-          class="nav-item mr-3"{% endif %} 
-          >
-            <a class="nav-link" href={% url "about" %}>About</a>
-          </li>
-        </ul>
-
-        <ul class="navbar-nav ml-auto">
-
-          <li {%  if 'register' in request.path  %} class="nav-item active mr-3"{% else %} 
-          class="nav-item mr-3"{% endif %} 
-          >
-            {% comment %} to fix index.html {% endcomment %}
-            <a class="nav-link" href="register.html">
-              <i class="fas fa-user-plus"></i> Register</a
+        {% else %}
+          <!-- register -->
+          <li 
+            {%  if 'register' in request.path  %} 
+              class="nav-item active mr-3"
+            {% else %} 
+              class="nav-item mr-3"
+            {% endif %} 
             >
+              <a class="nav-link" href={% url 'register'%}>
+                <i class="fas fa-user-plus"></i> Register</a>
           </li>
-          <li {%  if 'login' in request.path  %} class="nav-item active mr-3"{% else %} 
-          class="nav-item mr-3"{% endif %} 
-          >
-            {% comment %} to fix index.html {% endcomment %}
-            <a class="nav-link" href="login.html">
-              <i class="fas fa-sign-in-alt"></i>Login</a
+          <!-- login -->
+          <li 
+            {%  if 'login' in request.path  %} 
+            class="nav-item active mr-3"
+            {% else %} 
+            class="nav-item mr-3"
+            {% endif %} 
             >
+              <a class="nav-link" href={% url 'login'%}>
+                <i class="fas fa-sign-in-alt"></i>Login</a
+              >
           </li>
-        </ul>
-      </div>
+        {% endif %}
+
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>

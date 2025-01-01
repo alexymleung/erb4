@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Listing
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.db.models import Q
 from listings.choices import price_choices, bedroom_choices, district_choices
+from .models import Listing
 
 def index(request):
     listings = Listing.objects.order_by('-list_date').filter(is_published=True)
@@ -41,8 +42,20 @@ def search(request):
             queryset_list = queryset_list.filter(bedrooms__lte = bedrooms)
     if "price" in request.GET:
         price = request.GET['price']
-        if price:
-            queryset_list = queryset_list.filter(price__lte = price)
+        price = float(price)  # Convert to float (or int if preferred)
+        if price == 20000001:
+            queryset_list = queryset_list.filter(
+                    Q(price__gte=price)
+                )
+        else:
+            try:
+                queryset_list = queryset_list.filter(
+                    Q(price__lte=price) & Q(price__gte=price - 2000000)
+                )
+            except ValueError:
+                # Handle the case where the conversion fails
+                # You can log the error or set an error message
+                pass  # Or handle the error as needed
 
     context = {
         'price_choices' : price_choices,
@@ -50,7 +63,7 @@ def search(request):
         'district_choices' : district_choices,
         'listings' : queryset_list,
         'values' : request.GET,
-
     }    
+
     return render(request,'listings/search.html', context)
 
